@@ -3,7 +3,10 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var YouTubeSchema   = new Schema({
-    url: String
+    url: String,
+    email: String,
+    subject: String,
+    message: String
 });
 
 function videoCheck() {

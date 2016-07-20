@@ -48,7 +48,7 @@ function videoCheck(id) {
 
 var recursiveCall = function (id, res) {
   if(res && res == 'processed') {
-    // console(".");
+    console.log(".");
     console.log(res);
     return res;
   }
@@ -67,7 +67,7 @@ var recursiveCall = function (id, res) {
             // console.log(parsed);
             setTimeout(function(){
               recursiveCall(id, parsed.items[0].status.uploadStatus);
-            }, 5000)
+            }, 2000)
             // setTimeout(recursiveCall(id, parsed.items[0].status.uploadStatus), 1000);
             // return recursiveCall(id, parsed.items[0].status.uploadStatus);
         });
@@ -96,6 +96,22 @@ router.route('/youtube-tester')
   .post(function(req, res){
     var youTube = new YouTube();      // create a new instance of the Bear model
     youTube.url = req.body.url;  // set the bears name (comes from the request)
+    youTube.subject = req.body.subject;
+    youTube.email = req.body.email;
+    youTube.message = req.body.message;
+    console.log("    ");
+    console.log("    ");
+    console.log("*********");
+    console.log("*********");
+    console.log("    ");
+    console.log("Email ID: ", youTube.email);
+    console.log("Subject: ", youTube.subject);
+    console.log("Message: ", youTube.message);
+    console.log("    ");
+    console.log("*********");
+    console.log("*********");
+    console.log("    ");
+
 
     // save the bear and check for errors
     youTube.save(function(err) {
