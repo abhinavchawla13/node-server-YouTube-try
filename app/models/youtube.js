@@ -6,7 +6,8 @@ var YouTubeSchema   = new Schema({
     url: String,
     email: String,
     subject: String,
-    message: String
+    message: String,
+    userMail: String
 });
 
 function videoCheck() {
